@@ -1,12 +1,12 @@
 # Basic
-title: 潘柏信
-subtitle: 个人站
-description: 欢迎来到我的个人站~
+title: Neuclil
+subtitle: Think Aloud
+description: enjoy life, coding now!
 # 头像里面的标题
-avatarTitle: leopardpan
+avatarTitle: Neuclil
 # 头像里面的描述
-avatarDesc: iOS / 机器学习
-url: "http://baixin.io"
+avatarDesc: Java / ML
+url: "http://neuclil.com"
 
 # Comment
 comment:
@@ -15,10 +15,10 @@ comment:
 
 # Social
 social:
-    weibo: 5366874726 
-    github: leopardpan
+    weibo: 2430534536 
+    github: neuclil
     # twitter: 
-    mail: leopardpan@icloud.com
+    mail: neuclil8107@gmail.com
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 
@@ -28,7 +28,7 @@ baidu:
 # Google Analytics
 # 使用博客模板请去掉或者更换 id
 ga:
-    id: UA-84134159-3   
+    id: UA-93350536-1  
     host: auto  
 
 
