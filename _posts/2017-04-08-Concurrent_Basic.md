@@ -54,6 +54,7 @@ public class Main {
 + Runnable更像是一种策略设计模式，线程把具体的执行执行策略或者说业务逻辑交给开发者去实现，具体的方法是实现Runnable对象，并重新Runnable的run方法。
 
 ### 验证结论
+通过查看源码,我们可以得到如下的注释信息:
 
 ```java
 * <p>
@@ -83,9 +84,7 @@ public class Main {
 
 这是Thread中的run方法，我们发现，如果我们不重新run方法，或者不传入Runnable对象(我们传入的Runnable对象会对target初始化，如果不传，默认为null)
 
----
-
-**通过对比实验结果与Java源码及注释，我们可以对Thread有个大概的认识和总结：
+通过对比实验结果与Java源码及注释，我们可以对Thread有个大概的认识和总结：
 
 + 创建Thread对象并不会创建新的线程，必须调用Thread的start方法才会创建新的线程。
 
@@ -93,9 +92,8 @@ public class Main {
 
 + start0()是native方法，会被start()方法调用。
 
-+ Runnable是给线程执行的对象，必须重写run方法，该方法供对象调用。**
++ Runnable是给线程执行的对象，必须重写run方法，该方法供对象调用.
 
----
 
 ## 1.1 Thread线程信息
 * 线程名 
@@ -104,6 +102,7 @@ public class Main {
 * 线程状态
 * 线程id 默认是自增
 * 线程组 ThreadGroup
+
 ## 1.2 join()方法
 	在一些情形下，我们必须等待线程的终止，我们的程序在执行其他的任务时，必须先初始化一些必须的资源。当一个线程对象的join()方法被调用时，调用它的线程被挂起，直到这个线程对象完成它的任务。
 
