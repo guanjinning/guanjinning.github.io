@@ -6,13 +6,16 @@ tag: java
 ---
 
 # Basic
+
 ## 1. Thread
+
 Java提供了两种方式来创建线程：
 
 + 继承Thread类，并覆盖run()方法。
 + 创建一个实现了Runnable接口的类。使用带参数的Thread构造器来创建Thread对象。
 
 ### 实验
+
 首先，我们通过写一个Calculator类继承Runnable对象，并重写run方法，其中run方法里面放的是我们具体的业务逻辑代码，然后在主线程中开启10个线程来执行这个Runnable对象。
 
 ```java
@@ -43,6 +46,7 @@ public class Main {
    }
 }
 ```
+实验结果如下:
 ![](/images/posts/concurrent/result1.png)
 
 通过这个实验，我们得到的结论如下：
@@ -57,7 +61,7 @@ public class Main {
 通过查看源码,我们可以得到如下的注释信息:
 
 ```java
-* <p>
+ * <p>
  * The other way to create a thread is to declare a class that
  * implements the <code>Runnable</code> interface. That class then
  * implements the <code>run</code> method. An instance of the class can
@@ -104,16 +108,21 @@ public class Main {
 * 线程组 ThreadGroup
 
 ## 1.2 join()方法
+
 	在一些情形下，我们必须等待线程的终止，我们的程序在执行其他的任务时，必须先初始化一些必须的资源。当一个线程对象的join()方法被调用时，调用它的线程被挂起，直到这个线程对象完成它的任务。
 
 ## 1.3 守护线程
+
 	守护线程的优先级很低，通常被用来作为同一个程序中普通线程的服务提供者，它们通常是无限循环的，以等待服务请求者或者执行线程的任务。当守护线程是程序中唯一运行的线程时，守护线程执行结束后，JVM也就结束了这个程序。
 
 ## 1.4 不可控异常
+
 	当线程对象的run()方法抛出非运行异常时，我们必须捕获并且处理它们，当运行时异常从run()方法中抛出时，我们通过向Thread设置不可控异常处理器来处理这种异常。ExceptionHandler对象必须实现UncaughtExceptionHandler接口并且实现了这个接口的uncaughtException()方法。当一个线程抛出了异常并且没有被捕获时，JVM检查这个线程是否被预置了未捕获异常处理器，如果找到，JVM将调用线程对象的这个方法，并将线程对象和异常作为传入参数。
 
 ## 1.5 ThreadGroup
+
 	我们可以对线程进行分组，对组内的线程进行访问控制。Java提供了ThreadGroup类来表示一组对象，线程组可以包含线程对象，也可以包含其他的线程组对象，它时一个树形结构。
+
 * 如果不指定线程组，默认就是和父类线程一个组。
 * list()方法 → 打印线程组对象的信息。
 * activeCount()方法 →  获取线程组包含的线程数目
@@ -191,6 +200,7 @@ public class SearchTask implements Runnable{
 ```
 
 ## 1.6 ThreadFactory
+
 	ThreadFactory接口实现了线程对象工厂，用以生成个性化名称的线程并且保存这些线程对象的统计信息。
 
 ```java
@@ -226,7 +236,9 @@ public class MyThreadFactory implements ThreadFactory {
 ```
 
 # 2. Resource
+
 	共享数据是并发程序最核心的概念，如果资源在多个线程内部，那么线程不能共享数据。让多个线程共享资源的方法：
+
 1. 将资源声明为static，这是最简单的方法，但也是最不适用的方法。
 2. 将要执行的业务逻辑封装称一个Runnable对象，将资源放到Runnable对象中，然后把Runnable对象传递给线程来执行，不同的执行线程都可以访问此Runnable。
 
